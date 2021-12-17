@@ -103,19 +103,6 @@ router.post(
 );
 
 // Route 3 .Get loggedin user credentials using POST: "/api/auth/getuser". Login Required
-// router.post('/getuser', fetchuser , async(req, res)=> {
-//     console.log("first");
-//         try {
-//             userId = req.user.id;
-//             const user = await User.findById(userId).select("-password")
-//             res.send(user)
-
-//         } catch (error) {
-//             console.log("error");
-//             res.status(500).send("Internal server error.");
-//         }
-//     }
-// );
 router.post('/getuser', fetchuser,  async (req, res) => {
 
     try {
