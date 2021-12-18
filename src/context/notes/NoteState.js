@@ -2,25 +2,88 @@ import NoteContext from "./noteContext";
 import { useState } from "react";
 
 const NoteState = (props) => {
-    const s1 = {
-        "name" : "Meet",
-        "class" : "10A"
-    }
-    const [state, setState] = useState(s1);
-    const update = () => {
-        setTimeout(()=> {
-            setState({
-                "name" : "Geet",
-                "class" : "10B"
-            })
-        }, 1000)
-    }
-    return (
-        <NoteContext.Provider value={{state, update}}>
-            {props.children}
-        </NoteContext.Provider>
-    )
+  const notesInitial = [
+    {
+      _id: "61bcc0ea2cfc562de900e134",
+      user: "61bc5e8f51c3e46cfaf6768b",
+      title: "My Title",
+      description: "Please wake up early",
+      tag: "personal",
+      __v: 0,
+    },
+    {
+      _id: "61bd6b3ceaca2d8e474532b8",
+      user: "61bc5e8f51c3e46cfaf6768b",
+      title: "My Title2",
+      description: "Please wake up early2",
+      tag: "personal",
+      __v: 0,
+    },
+    {
+      _id: "61bd6b3ceaca2d8e474532b8",
+      user: "61bc5e8f51c3e46cfaf6768b",
+      title: "My Title2",
+      description: "Please wake up early2",
+      tag: "personal",
+      __v: 0,
+    },
+    {
+      _id: "61bcc0ea2cfc562de900e134",
+      user: "61bc5e8f51c3e46cfaf6768b",
+      title: "My Title",
+      description: "Please wake up early",
+      tag: "personal",
+      __v: 0,
+    },
+    {
+      _id: "61bd6b3ceaca2d8e474532b8",
+      user: "61bc5e8f51c3e46cfaf6768b",
+      title: "My Title2",
+      description: "Please wake up early2",
+      tag: "personal",
+      __v: 0,
+    },
+    {
+      _id: "61bd6b3ceaca2d8e474532b8",
+      user: "61bc5e8f51c3e46cfaf6768b",
+      title: "My Title2",
+      description: "Please wake up early2",
+      tag: "personal",
+      __v: 0,
+    },
+    {
+      _id: "61bcc0ea2cfc562de900e134",
+      user: "61bc5e8f51c3e46cfaf6768b",
+      title: "My Title",
+      description: "Please wake up early",
+      tag: "personal",
+      __v: 0,
+    },
+    {
+      _id: "61bd6b3ceaca2d8e474532b8",
+      user: "61bc5e8f51c3e46cfaf6768b",
+      title: "My Title2",
+      description: "Please wake up early2",
+      tag: "personal",
+      __v: 0,
+    },
+    {
+      _id: "61bd6b3ceaca2d8e474532b8",
+      user: "61bc5e8f51c3e46cfaf6768b",
+      title: "My Title2",
+      description: "Please wake up early2",
+      tag: "personal",
+      __v: 0,
+    },
+  ];
 
-}
+  const [notes, setNotes] = useState(notesInitial);
+
+  return (
+    <NoteContext.Provider value={{ notes, setNotes }}>
+      {props.children}
+    </NoteContext.Provider>
+  );
+};
 
 export default NoteState;
