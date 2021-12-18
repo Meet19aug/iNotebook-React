@@ -18,14 +18,15 @@ router.post(
     body("password", "Enter a valid Password.").isLength({ min: 5 }),
   ],
   async (req, res) => {
+    let success = false;
     // If there are error return bad requrst and error
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() });
+      return res.status(400).json({ success, errors: errors.array() });
     }
     try {
       // check whether the user with same email exists.
-      let user = await User.findOne({ email: req.body.email });
+      let user = await User.findOne({success, email: req.body.email });
       if (user) {
         return res
           .status(400)
@@ -47,8 +48,9 @@ router.post(
       };
 
       const authtoken = jwt.sign(data, JWT_SECRET);
+      success=true;
       console.log(authtoken);
-      res.json({ authtoken });
+      res.json({ success, authtoken });
       //   .then(user => res.json(user))
       //   .catch(err=>{console.log(err)
       // res.json({error: "please enter unique value for email.", message: err.message})})
