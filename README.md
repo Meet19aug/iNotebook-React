@@ -1,3 +1,9 @@
+# To Run this Project on LocalHost
+ > goto backend folder and run
+    nodemon .\index.js
+ > On iNotebook Main Folder run
+    npm start
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
